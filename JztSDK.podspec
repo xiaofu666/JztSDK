@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'JztSDK'
-    s.version          = '1.3.4.1'
+    s.version          = '2.0.2'
     s.summary          = 'JztSDK'
 
     s.description      = <<-DESC
