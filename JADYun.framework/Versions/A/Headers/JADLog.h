@@ -1,5 +1,5 @@
 //
-//  JADLogModule.h
+//  JADLog.h
 //  JADYun
 //
 //  Created by wangshuai331 on 2020/8/6.
@@ -38,8 +38,7 @@ typedef NS_ENUM(NSUInteger, JADLogLevel) {
 @interface JADLog : NSObject
 
 + (void)openLog:(BOOL)open;
-+ (void)setDebugMode;
-+ (void)setVerboseMode;
+
 + (void)logV:(NSString *)format, ...NS_FORMAT_FUNCTION(1,2);
 + (void)logD:(NSString *)format, ...NS_FORMAT_FUNCTION(1,2);
 + (void)logI:(NSString *)format, ...NS_FORMAT_FUNCTION(1,2);

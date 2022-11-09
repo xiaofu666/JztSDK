@@ -7,12 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, JADInteractionType) {
-    JADInteractionTypeCustom = 0,
-    JADInteractionTypeURL = 1,      // open the webpage using a browser
-    JADInteractionTypePage = 2,     // open the webpage within the app
-};
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JADNativeAdData : NSObject

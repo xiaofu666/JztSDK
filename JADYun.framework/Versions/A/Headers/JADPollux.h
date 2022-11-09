@@ -9,6 +9,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Pollux类
+ 
+  当您需要设置Pollux时，可使用JADYunSDK的setPolluxArray进行设置
+ 
+  代码示例：
+ 
+        JADPollux *currentPollux = [[JADPollux alloc] init];
+        currentPollux.polluxValue = @"YOUR_POLLUX_ID";
+        currentPollux.polluxVersion = @"YOUR_POLLUX_VERSION";
+        [JADYunSDK setPolluxArray:@[currentPollux]];
+ */
 @interface JADPollux : NSObject<NSCoding>
 
 /// Pollux 值，原CAID 值

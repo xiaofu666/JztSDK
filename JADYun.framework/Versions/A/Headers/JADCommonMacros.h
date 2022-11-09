@@ -41,6 +41,12 @@
 #define kJADSafeTopMargin               (JADiPhoneX?24:0)
 #define kJADDefaultStautsBarHeight      (JADiPhoneX?44:20)      // 状态栏高度
 
+#define JAD_IS_NULL(obj)             (obj == nil || obj == (id)[NSNull null])
+#define JAD_IS_NOT_NULL(obj)         (obj != nil && obj != (id)[NSNull null])
+#define JAD_STR_EMPTY(obj)           ((JAD_IS_NULL(obj)) || (![obj isKindOfClass:[NSString class]]) || [obj length] == 0 )
+#define JAD_DATA_EMPTY(obj)          ((JAD_IS_NULL(obj)) || (![obj isKindOfClass:[NSData class]]) || [obj length] == 0 )
+#define JAD_SAFE_STRING(obj)         ((JAD_IS_NOT_NULL(obj))?obj:@"")
+
 FOUNDATION_EXPORT BOOL jad_is_notch_screen(void);
 
 #endif /* JADCommonMacros_h */

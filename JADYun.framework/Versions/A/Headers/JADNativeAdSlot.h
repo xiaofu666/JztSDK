@@ -8,41 +8,38 @@
 #import <Foundation/Foundation.h>
 
 #import "JADNativeSize.h"
+
+#if __has_include(<JADYunCore/JADYunConstant.h>)
+#import <JADYunCore/JADYunConstant.h>
+#else
+
 #import "JADYunConstant.h"
 
-typedef NS_ENUM(NSUInteger, JADAdSlotAdType) {
-    JADAdSlotAdTypeUnknown       = 0,
-    JADAdSlotAdTypeSplash        = 1,    // splash ads
-    JADAdSlotAdTypeFeed          = 2,    // feed ads
-    JADAdSlotAdTypeFeedVideo     = 3,    // feed video ads
-    JADAdSlotAdTypeInterstitial  = 4,    // interstitial ads
-    JADAdSlotAdTypeBanner        = 5,    // banner ads
-    JADAdSlotAdTypeRewardedVideo = 6,    // rewarded video ads
-};
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 广告位类
+/// 当前类用于初始化自渲染广告
 @interface JADNativeAdSlot : NSObject
 
-///  required. The unique identifier of a native ad.
-@property (copy, nonatomic) NSString *adID;
+/// required. 代码位ID The unique identifier of a native ad.
+@property (copy, nonatomic) NSString *slotID;
 
-/// required. Ad type.
-@property (assign, nonatomic) JADAdSlotAdType adType;
+/// required. 广告类型 Ad type.
+@property (assign, nonatomic) JADSlotType type;
 
-/// required. Image size.
+/// required. 广告尺寸 Image size.
 @property (strong, nonatomic) JADNativeSize *imgSize;
 
-/// Whether to support deeplink. 注意：该参数已失效
-@property (assign, nonatomic) BOOL isSupportDeepLink DEPRECATED_MSG_ATTRIBUTE("This property is deprecated, Settings are no longer required after version 1.2.2");
-
-/// Splash allowable skipTime , default 5s
-@property (assign, nonatomic) CGFloat fetchDelay DEPRECATED_MSG_ATTRIBUTE("use skipTime");
+/// 开屏广告跳过时间 Splash allowable skipTime , default 5s
 @property (assign, nonatomic) CGFloat skipTime;
 
-
 /// 触发点击事件的手势类型
-@property (nonatomic, assign) JADClickEventTriggerType triggerType;
+@property (assign, nonatomic) JADClickEventTriggerType triggerType DEPRECATED_ATTRIBUTE;
+
+/// 事件交互类型，注意：只针对开屏场景生效
+@property (assign, nonatomic) JADEventInteractionType eventInteractionType DEPRECATED_ATTRIBUTE;
 
 @end
 
